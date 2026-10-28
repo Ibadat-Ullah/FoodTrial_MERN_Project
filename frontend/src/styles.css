@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-font: 'Manrope', sans-serif;
+  font-family: var(--app-font);
+  color: #231b17;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after,
+body,
+button,
+input,
+textarea,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--app-font);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+::selection {
+  background: #ffd2c2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

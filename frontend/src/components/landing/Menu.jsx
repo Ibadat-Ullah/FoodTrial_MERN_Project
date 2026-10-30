@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import api from '../../api/client';
-import { fallbackFoods } from '../../data/landingData';
+import api from '../../api/apiClient';
+import { fallbackFoods } from '../../data/storefrontContent';
 import Button from '../common/Button';
 import SectionLink from '../common/SectionLink';
 import FoodCard from './FoodCard';

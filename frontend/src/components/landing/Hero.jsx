@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { slides } from '../../data/landingData';
+import { slides } from '../../data/storefrontContent';
 import SectionLink from '../common/SectionLink';
 
 export default function Hero() {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import api from '../../api/client';
+import api from '../../api/apiClient';
 import { checkoutSchema } from '../../schemas/checkout';
 import Button from '../common/Button';
 import Input from '../common/Input';

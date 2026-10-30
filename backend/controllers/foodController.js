@@ -1,5 +1,5 @@
 const Food = require('../models/Food');
-const createCrudController = require('./crudController');
+const createCrudController = require('./createCrudController');
 
 module.exports = createCrudController(Food, {
   prepareBody: (req, operation) => {

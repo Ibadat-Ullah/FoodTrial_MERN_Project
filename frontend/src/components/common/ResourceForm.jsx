@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { getAssetUrl } from '../../api/client';
+import { getAssetUrl } from '../../api/apiClient';
 import Button from './Button';
 import Input from './Input';
 
-export default function CrudForm({ config, initialValues, onSubmit, onCancel, submitting }) {
+export default function ResourceForm({ config, initialValues, onSubmit, onCancel, submitting }) {
   const form = useForm({
     resolver: zodResolver(config.schema),
     defaultValues: initialValues

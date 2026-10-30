@@ -1,5 +1,5 @@
-const asyncHandler = require('../middleware/asyncHandler');
 const User = require('../models/User');
+const asyncHandler = require('./asyncHandler');
 
 const register = asyncHandler(async (req, res) => {
   const { name, email } = req.body;

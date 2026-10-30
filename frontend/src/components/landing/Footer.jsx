@@ -26,7 +26,7 @@ export default function Footer() {
             <Link to="/" className="transition hover:text-brand-900">Home</Link>
             <SectionLink section="menu" className="transition hover:text-brand-900">Menu</SectionLink>
             <SectionLink section="about" className="transition hover:text-brand-900">About us</SectionLink>
-            <Link to="/admin/login" className="transition hover:text-brand-900">Admin / Login</Link>
+            <Link to="/admin" className="transition hover:text-brand-900">Admin</Link>
           </div>
         </div>
         <div className="relative">

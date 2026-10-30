@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAll } from '../../api/resources';
+import { getAll } from '../../api/resourceApi';
 
 const modules = [
   { key: 'foods', label: 'Foods', description: 'Manage menu items', to: '/admin/foods?view=all', icon: '✳' },

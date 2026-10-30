@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { createOne, deleteOne, getAll, updateOne } from '../../api/resources';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { createOne, deleteOne, getAll, updateOne } from '../../api/resourceApi';
+import { resourceConfigs } from '../../schemas/adminResources';
 import Button from '../common/Button';
-import CrudForm from '../common/CrudForm';
+import ResourceForm from '../common/ResourceForm';
 import DataTable from '../common/DataTable';
 import Modal from '../common/Modal';
 
@@ -13,7 +14,20 @@ const emptyValues = (config) => Object.fromEntries(config.fields.map((field) => 
 
 const errorMessage = (error) => error.response?.data?.message || error.message || 'Something went wrong.';
 
-export default function ResourcePage({ config }) {
+export default function ResourcePage() {
+  const { resource } = useParams();
+  const config = Object.prototype.hasOwnProperty.call(resourceConfigs, resource)
+    ? resourceConfigs[resource]
+    : undefined;
+
+  if (!config) {
+    return <p role="alert" className="rounded-xl bg-red-50 p-5 text-sm text-red-700">This admin section is not available.</p>;
+  }
+
+  return <ResourceManagementPage config={config} />;
+}
+
+function ResourceManagementPage({ config }) {
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -143,7 +157,7 @@ export default function ResourcePage({ config }) {
           actionLabels={config.separateForms ? { edit: 'Update', delete: 'Remove' } : undefined}
         />)}
       <Modal open={modalOpen} title={`${editing ? 'Edit' : 'Add'} ${config.singular}`} onClose={closeModal}>
-        <CrudForm
+        <ResourceForm
           key={editing?._id || 'new'}
           config={config}
           initialValues={editing ? { ...emptyValues(config), ...editing } : emptyValues(config)}

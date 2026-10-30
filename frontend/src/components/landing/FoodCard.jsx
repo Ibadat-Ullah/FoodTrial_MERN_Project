@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getAssetUrl } from '../../api/client';
+import { getAssetUrl } from '../../api/apiClient';
 import Button from '../common/Button';
 import OrderDialog from './OrderDialog';
 

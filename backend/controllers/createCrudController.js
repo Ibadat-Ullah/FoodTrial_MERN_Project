@@ -1,4 +1,4 @@
-const asyncHandler = require('../middleware/asyncHandler');
+const asyncHandler = require('./asyncHandler');
 
 const createCrudController = (Model, { prepareBody } = {}) => ({
   getAll: asyncHandler(async (req, res) => {

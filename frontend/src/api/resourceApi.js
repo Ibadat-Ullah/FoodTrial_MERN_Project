@@ -1,4 +1,4 @@
-import api from './client';
+import api from './apiClient';
 
 export const getAll = (endpoint) => api.get(`/${endpoint}`).then((response) => response.data);
 export const getOne = (endpoint, id) => api.get(`/${endpoint}/${id}`).then((response) => response.data);

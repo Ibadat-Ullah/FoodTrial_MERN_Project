@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { createOne, deleteOne, getOne, updateOne } from '../../api/resources';
+import { createOne, deleteOne, getOne, updateOne } from '../../api/resourceApi';
 import { resourceConfigs } from '../../schemas/adminResources';
 import Button from '../common/Button';
-import CrudForm from '../common/CrudForm';
+import ResourceForm from '../common/ResourceForm';
 
 const errorMessage = (error) => error.response?.data?.message || error.message || 'Something went wrong.';
 
@@ -79,7 +79,7 @@ export default function ResourceFormPage({ mode }) {
         <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-8 text-center text-sm text-stone-500">Loading record…</div>
       ) : record || mode === 'new' ? (
         <div className="mt-6 rounded-3xl border border-stone-100 bg-white p-6 shadow-sm sm:p-8">
-          <CrudForm
+          <ResourceForm
             key={`${mode}-${record?._id || 'new'}`}
             config={config}
             initialValues={initialValues}

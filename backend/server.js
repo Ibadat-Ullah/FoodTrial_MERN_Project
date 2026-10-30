@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -13,9 +11,10 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const port = 5000;
-const mongoUri = process.env.MONGO_URI;
+const mongoUri = 'mongodb+srv://ibadat_ullah:1234@mern-cluster-1.uqzexrk.mongodb.net/';
+const clientUrl = 'http://localhost:5173';
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: clientUrl }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -53,7 +52,7 @@ app.use((error, req, res, next) => {
 });
 
 if (!mongoUri) {
-  console.error('MongoDB connection failed: MONGO_URI is not set in backend/.env');
+  console.error('MongoDB connection failed: MONGO_URI is not configured');
   process.exitCode = 1;
 } else {
   mongoose.connect(mongoUri)
